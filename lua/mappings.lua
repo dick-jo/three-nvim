@@ -1,0 +1,50 @@
+require "nvchad.mappings"
+
+local map = vim.keymap.set
+
+-- add yours here
+map("n", "<C-z>", "<Nop>")
+map("i", "<C-z>", "<Nop>")
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
+
+-- Terminal mappings using F-keys
+map({ "n", "t" }, "<F2>", function()
+  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
+end, { desc = "terminal toggleable horizontal term" })
+
+map({ "n", "t" }, "<F3>", function()
+  require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+end, { desc = "terminal toggleable vertical term" })
+
+map({ "n", "t" }, "<F4>", function()
+  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
+end, { desc = "terminal toggle floating term" })
+--
+
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
+
+-- Sidekick NES navigation
+map("n", "<C-j>", function()
+  require("sidekick").nes_jump_or_apply()
+end, { desc = "Sidekick Goto/Apply Edit Suggestion" })
+
+-- Lazygit (Folke's recommended binding)
+map("n", "<leader>gg", function()
+  require("snacks").lazygit()
+end, { desc = "Lazygit" })
+
+-- Disable smooth scroll for gg/G (instant jump to top/bottom)
+map("n", "gg", function()
+  vim.g.snacks_scroll = false
+  vim.cmd("normal! gg")
+  vim.g.snacks_scroll = true
+end, { desc = "Jump to top (no smooth scroll)" })
+
+map("n", "G", function()
+  vim.g.snacks_scroll = false
+  vim.cmd("normal! G")
+  vim.g.snacks_scroll = true
+end, { desc = "Jump to bottom (no smooth scroll)" })
+
+-- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

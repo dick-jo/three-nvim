@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nvim:*)",
+      "Read(//Users/dickjones/.local/share/nvim/**)",
+      "Bash(brew list:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
