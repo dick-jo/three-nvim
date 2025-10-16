@@ -2,10 +2,10 @@
 local lspconfig = require "lspconfig"
 
 -- Simple on_attach - just for debugging
-local on_attach = function(client, bufnr)
-  print("✅ LSP connected: " .. client.name .. " for " .. vim.bo[bufnr].filetype)
-  -- That's it! NvChad handles the keymaps
-end
+-- local on_attach = function(client, bufnr)
+--   print("✅ LSP connected: " .. client.name .. " for " .. vim.bo[bufnr].filetype)
+-- That's it! NvChad handles the keymaps
+-- end
 
 -- Your language servers
 lspconfig.ts_ls.setup { on_attach = on_attach }

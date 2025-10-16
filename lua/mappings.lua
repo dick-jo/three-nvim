@@ -36,15 +36,19 @@ end, { desc = "Lazygit" })
 
 -- Disable smooth scroll for gg/G (instant jump to top/bottom)
 map("n", "gg", function()
-  vim.g.snacks_scroll = false
+  Snacks.scroll.disable()
   vim.cmd("normal! gg")
-  vim.g.snacks_scroll = true
+  vim.schedule(function()
+    Snacks.scroll.enable()
+  end)
 end, { desc = "Jump to top (no smooth scroll)" })
 
 map("n", "G", function()
-  vim.g.snacks_scroll = false
+  Snacks.scroll.disable()
   vim.cmd("normal! G")
-  vim.g.snacks_scroll = true
+  vim.schedule(function()
+    Snacks.scroll.enable()
+  end)
 end, { desc = "Jump to bottom (no smooth scroll)" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
