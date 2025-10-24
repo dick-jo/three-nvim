@@ -25,7 +25,7 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 -- Sidekick NES navigation
-map("n", "<C-j>", function()
+map("n", "<M-CR>", function()
   require("sidekick").nes_jump_or_apply()
 end, { desc = "Sidekick Goto/Apply Edit Suggestion" })
 
